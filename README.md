@@ -44,18 +44,17 @@ Una vez detectado el archivo se debe configurar de la siguiente manera.
 
 
 ``` txt
-
-registry=https://byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/registry/ 
+registry=https://byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/ 
                         
 always-auth=true
 
 ; begin auth token
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/registry/:username=BytteTFS
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/registry/:_password=(TOKEN)
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/registry/:email=npm requires email to be set but doesn't use the value
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/:username=BytteTFS
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/:_password=(TOKEN)
-//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/Bytte-Library-Sdk-Cordova-Dav/npm/:email=npm requires email to be set but doesn't use the value
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:username=BytteTFS
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:_password=(TOKEN)
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:email=npm requires email to be set but doesn't use the value
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:username=BytteTFS
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:_password=(TOKEN)
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:email=npm requires email to be set but doesn't use the value
 ; end auth token
 ```
 
@@ -63,7 +62,7 @@ En el espacio (*TOKEN*) se debe ingresar el password enviado por Bytte sas.
 
 #### 2.2.2 Instalación 
 
-`$ npm install react-native-bytte-bio-lib-id --save`
+`$ npm install react-native-bytte-bio-lib-id`
 
 
 Una vez instalado el plugin, se debe realizar la consulta a la aplicación para verificar que este quedó correctamente instalado.
@@ -73,7 +72,7 @@ Una vez instalado el plugin, se debe realizar la consulta a la aplicación para 
 ######   Adicionar la implementación bytte a su proyecto NPM
 para esta implementación se puede generar desde npm integrando de la siguiente forma: 
 
-``` npm i react-native-rn-bytte-bio-lib-miid --save```
+``` npm install react-native-bytte-bio-lib-id```
 
 Luego de instalar las dependencias npm se ingresa a la carpeta ***ios*** y se ejecuta el comando `pod install`
 
@@ -310,9 +309,6 @@ Estos colores se toman de la configuracon de la app
 ```
 
 
-
-#### 2.4. Configuración nativo Android
-
 #### 2.5. Uso de la librería
 
 * Una vez instalado el plugin, la aplicación destino heredará el Javascript expuesto por este, el cual expone las siguientes operaciones:
@@ -441,6 +437,7 @@ Control de cambios
 ------------------------------
 ------------------------------
 | 9-nov-2021 | Actualizacion librerias microblink para captura de documentos, cambio de librerias para la captura biometria|
+
 
 
 
