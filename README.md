@@ -259,7 +259,6 @@ configurar en el archivo Info.plist para el uso de la ***Camara***
     }
 ```
 
-
 ```
 <string name="OK">0000</string><string name="TimeOut">0001</string>
 <string name="Cancelado_a_proposito">0002</string>
@@ -281,9 +280,11 @@ Control de cambios
 ------------------------------
 ------------------------------
 | 9-nov-2021 | Actualizacion librerias microblink para captura de documentos, cambio de librerias para la captura biometria|
+```
 
+## Ejemplo Demo
 
-
+URL:  [http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip](http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip)
 
 
 
