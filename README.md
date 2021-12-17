@@ -36,12 +36,41 @@ Los factores limitantes para la integración del SDK son:
 
 #### 2.2. Instalación Plugin react-native-bytte-bio-lib-ID
 
-#### 2.2.1 Configuración archivo .npmrc
+#### 2.2.1 Configuración Token
+
+#### 2.2.1.1 MAC
 
 Una vez instalado NPM (sistema de gestión de paquetes). En la ruta por defecto de instalación se debe encontrar el archivo .npmrc, si no se encuentra se debe crear a nivel de usuario.
 
 Una vez detectado el archivo se debe configurar de la siguiente manera.
 
+
+``` txt
+registry=https://byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/ 
+                        
+always-auth=true
+
+; begin auth token
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:username=BytteTFS
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:_password=(TOKEN)
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/:email=npm requires email to be set but doesn't use the value
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:username=BytteTFS
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:_password=(TOKEN)
+//byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/:email=npm requires email to be set but doesn't use the value
+; end auth token
+```
+
+En el espacio (*TOKEN*) se debe ingresar el password enviado por Bytte sas.
+
+#### 2.2.1.2 MICROSOFT
+
+Una vez instalado NPM (sistema de gestión de paquetes). Se debe ejecutar el siguiente comando en la terminal.
+
+``` vsts-npm-auth -config .npmrc```
+
+este comando creara un archivo .npmrc en la ruta por defecto C:\Users\USER\\.npmrc
+
+Una vez detectado el archivo se debe configurar de la siguiente manera.
 
 ``` txt
 registry=https://byttetfs.pkgs.visualstudio.com/c1dcbe70-4508-4f44-bfa8-e50bdbfea41f/_packaging/react-native-bytte-bio-lib-id/npm/registry/ 
@@ -252,6 +281,7 @@ Control de cambios
 ------------------------------
 ------------------------------
 | 9-nov-2021 | Actualizacion librerias microblink para captura de documentos, cambio de librerias para la captura biometria|
+
 
 
 
