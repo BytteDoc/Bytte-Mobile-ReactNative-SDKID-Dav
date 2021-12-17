@@ -62,7 +62,7 @@ always-auth=true
 
 En el espacio (*TOKEN*) se debe ingresar el password enviado por Bytte sas.
 
-#### 2.2.1.2 MICROSOFT
+#### 2.2.1.2 WINDOWS
 
 Una vez instalado NPM (sistema de gestión de paquetes). Se debe ejecutar el siguiente comando en la terminal.
 
