@@ -68,7 +68,7 @@ Una vez instalado NPM (sistema de gestión de paquetes). Se debe ejecutar el sig
 
 ``` vsts-npm-auth -config .npmrc```
 
-este comando creara un archivo .npmrc en la ruta por defecto C:\Users\USER\\.npmrc
+este comando creará un archivo .npmrc en la ruta por defecto C:\Users\USER\\.npmrc
 
 Una vez detectado el archivo se debe configurar de la siguiente manera.
 
@@ -99,7 +99,7 @@ Una vez instalado el plugin, se debe realizar la consulta a la aplicación para 
 #### 2.3. Configuración nativo iOS (XCode)
 
 ######   Adicionar la implementación bytte a su proyecto NPM
-para esta implementación se puede generar desde npm integrando de la siguiente forma: 
+Para esta implementación se puede generar desde npm integrando de la siguiente forma: 
 
 ``` npm install react-native-bytte-bio-lib-id```
 
@@ -110,7 +110,7 @@ Luego de instalar las dependencias npm se ingresa a la carpeta ***ios*** y se ej
 
 ![Directories](http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/podinstall.png)
 
-Luego se ingresa al proyecto IOS y en la sección  ***Development Pods*** se busca la carpeta  ***RNBytteBioLibMiiD*** donde se encuentra los archivos correspondientes a la libreria. En la carpeta ***Frameworks*** se encuentran los binarios que deben ser embebidos de manera local al proyecto.
+Luego se ingresa al proyecto IOS y en la sección  ***Development Pods*** se busca la carpeta  ***RNBytteBioLibMiiD*** donde se encuentra los archivos correspondientes a la librería. En la carpeta ***Frameworks*** se encuentran los binarios que deben ser embebidos de manera local al proyecto.
 
 ![Directories](http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/framework4.png)
 
@@ -120,7 +120,7 @@ Una vez agregados se valida que se encuentren  ***Embed & sign***
 
 ######   Configuración Framework Search Paths
 
-Se optiene la ruta donde se encuentran los Framework bytte y se configura en Framework Search Paths
+Se obtiene la ruta donde se encuentran los Framework bytte y se configura en Framework Search Paths
 
 Ruta por defecto : ***Ruta_Proyecto***/bytteTest/node_modules/react-native-bytte-bio-lib-miid/ios/Frameworks
 
@@ -128,7 +128,7 @@ Ruta por defecto : ***Ruta_Proyecto***/bytteTest/node_modules/react-native-bytte
 
 ######   Configuración Pod RNBytteBioLib Framework Search Paths
 
-Se optiene la ruta donde se encuentran los Framework bytte y se configura en ***pod*** ***RNBytteBioLibMiiD*** Framework Search Paths
+Se obtiene la ruta donde se encuentran los Framework bytte y se configura en ***pod*** ***RNBytteBioLibMiiD*** Framework Search Paths
 
 Ruta por defecto : ***Ruta_Proyecto***/bytteTest/node_modules/react-native-bytte-bio-lib-miid/ios/Frameworks
 
@@ -145,7 +145,7 @@ El nombre del archivo se envía por parámetro ***(namePath)*** en la captura da
 
 ######   Permisos
 Los permisos en runtime deben ser solicitados por la app para el uso de bytte es necesario el siguiente:
-configurar en el archivo Info.plist para el uso de la ***Camara***
+configurar en el archivo Info.plist para el uso de la ***Cámara***
 
 `Privacy - Camera Usage Description`
 
@@ -153,7 +153,7 @@ configurar en el archivo Info.plist para el uso de la ***Camara***
 
 
 
-#### 2.5. Uso de la librería
+#### 2.5. Uso de la Librería
 
 * Una vez instalado el plugin, la aplicación destino heredará el Javascript expuesto por este, el cual expone las siguientes operaciones:
   > * startPhotoCapture
@@ -279,12 +279,13 @@ configurar en el archivo Info.plist para el uso de la ***Camara***
 Control de cambios
 ------------------------------
 ------------------------------
-| 9-nov-2021 | Actualizacion librerias microblink para captura de documentos, cambio de librerias para la captura biometria|
+| 9-nov-2021 | Actualizacion librerías microblink para captura de documentos, cambio de librería para la captura biometria|
 ```
 
 ## Ejemplo Demo
 
 URL:  [http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip](http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip)
+
 
 
 
