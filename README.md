@@ -319,7 +319,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
     //Captura foto
      onCapturePhoto = () => {
-        NativeModules.RNBytteBioLibId.startPhotoCapture(0,0,(response)=>{
+        NativeModules.BytteBioLibId.startPhotoCapture(0,0,(response)=>{
             var obj = JSON.parse(response);
             if(obj.CodigoOperacion == "0000" && obj.StatusOperacion == "true"){
                 alert(obj.MensajeOriginal+ '\n' + "FileBase64 : " + obj.FileBase64.substr(0,50) + "...");
@@ -335,7 +335,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
   //Busqueda de archivo
     fileSearch = () =>{
-            NativeModules.RNBytteBioLibId.startFindFile(idTipo,(response)=>{
+            NativeModules.BytteBioLibId.startFindFile(idTipo,(response)=>{
                 var obj = JSON.parse(response);
                 if(obj.CodigoOperacion == "0000" && obj.StatusOperacion == "true"){
                     alert(obj.MensajeOriginal + '\n' + "FileBase64 : " + obj.FileBase64.substr(0,50) + "...");
@@ -351,7 +351,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
     //Captura documento reverso
     onCaptureBackDocument = () =>{
-        NativeModules.RNBytteBioLibId.startBarCode(license,key,timeOut,pais,(response)=>{
+        NativeModules.BytteBioLibId.startBarCode(license,key,timeOut,pais,(response)=>{
             var obj = JSON.parse(response);
             if(obj.StatusOperacion){
                 alert(obj.MensajeOriginal + '\n' + '\n' + obj.NombresCompletos + '\n' + "Sexo: " + obj.Sexo + '\n' + "Fecha Nacimiento: " + obj.FechaNacimiento + '\n' + "RH: " + obj.RH);
@@ -367,7 +367,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
     //Captura documento frente
     onCaptureFrontDocument = () =>{
-        NativeModules.RNBytteBioLibId.startFrontDocument(license,key,timeOut,pais,(response)=>{
+        NativeModules.BytteBioLibId.startFrontDocument(license,key,timeOut,pais,(response)=>{
             var obj = JSON.parse(response);
             if(obj.StatusOperacion){
                 alert(obj.MensajeOriginal + '\n' + '\n' + obj.Nombres + '\n' + obj.Apellidos + '\n' + obj.NumeroCedula);
@@ -383,7 +383,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
     //captura tarjeta de credito
     onCaptureCreditCard = () =>{
-        NativeModules.RNBytteBioLibId.startCreditCard(license,key,timeOut,(response)=>{
+        NativeModules.BytteBioLibId.startCreditCard(license,key,timeOut,(response)=>{
             var obj = JSON.parse(response);
             if(obj.CodigoOperacion == "0000" && obj.StatusOperacion){
                 alert(obj.MensajeRetorno + '\n' + "Nombre : " + obj.NombreTarjeta + '\n' + "Numero : " + obj.NumeroTarjeta);
@@ -399,7 +399,7 @@ Vamos a la carpeta res/values/strings.xml
 ```javascript
     //Captura Biometria dactilar
     onCaptureBiometricDactilar = () =>{
-            NativeModules.RNBytteBioLibId.startFingerprint(key,timeOut,finger,namePath,url,netkey,(response)=>{
+            NativeModules.BytteBioLibId.startFingerprint(key,timeOut,finger,namePath,url,netkey,(response)=>{
                 var obj = JSON.parse(response);
                 if(obj.CodigoOperacion == "0000" && obj.StatusOperacion == "true"){
                     alert(obj.MensajeOriginal);
@@ -436,6 +436,7 @@ Control de cambios
 ## Ejemplo Demo
 
 URL:  [http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip](http://www.bytte.com.co/ftpaccess/Varios/CarlosG/ReactNative/bytteTest.zip)
+
 
 
 
