@@ -171,34 +171,42 @@ En el archivo gradle build.gradle  del proyecto adicionaremos la 'URL' que nos e
 
 >Las librerías tiene soporte tanto a 32 como a 64 bit en arm. 
 
-
-
 Generamos la siguiente configuración: en el Gradle. build.gradle de android, allprojects/repositories 
 username= Usuario de conexión para la descarga de las librerías
 password= Token de conexión para la descarga de las librerías
-Estos datos son entregados por Bytte son necesarios para la conexión y descarga de las librerías
+Estos datos son entregados por Bytte son necesarios para la conexión y descarga de las librerías al igual que las urls
 
 ```gradle
-   maven {
-                url 'https://byttetfs.pkgs.visualstudio.com/BytteSDKLibrarys-Android/_packaging/SdkBytteV2/maven/v1'
-                name 'SdkBytteV2'
-                credentials {
-                    username ""
-                    password ""
-                }
+
+android{ 
+    defaultconfig  despues de 
+    versionName ingresamos 
+    ndk {abiFilters  “armeabi-v7a”, "arm64-v8a"}
+
+repositories {
+        maven {
+            url 'https://multifactorbyttelibrary.pkgs.visualstudio.com/BytteSDKLibraryX/_packaging/BytteSdk/maven/v1'
+            name 'BytteSdk'
+            credentials {
+                username ""
+                password ""
             }
+        }
+}
 ```
-**Las librerías tiene soporte tanto a 32 como a 64 bit en arm.
+**Las librerías tiene soporte tanto a 32 como a 64 bit en arm.**
 
 
 #### Licenciamiento para captura de documentos:
 Es necesario el nombre de la app o bundleid ej:'com.bytte.casb' con ello se genera un string el cual se pasa por parámetro, para las capturas de documentos funcionen.
-Ejm= sRwAAAEcY29tLmJpb21ldHJpYy5ieXR0ZS5jYXNiYXV0aGwvBQWzcDTlsQl3yJ1mesdlcj2sdrMSJvBW52EtPkL73OxXk7gkJpJKpZm4EirHgF41K2IWg23Zct2aD1PvnDidue2a5RxgmOhu5qE78eRU0zFdhlEU1gvgcv6PGgYJHW4VRAyUs2LAaVj6v1Nyh8YXCLpv5ziCGUqV9aQg
+    
+    Ejm= sRwAAAEcY29tLmJpb21ldHJpYy5ieXR0ZS5jYXNiYXV0aGwvBQWzcDTlsQl3yJ1mesdlcj2sdrMSJvBW52EtPkL73OxXk7gkJpJKpZm4EirHgF41K2IWg23Zct2aD1PvnDidue2a5RxgmOhu5qE78eRU0zFdhlEU1gvgcv6PGgYJHW4VRAyUs2LAaVj6v1Nyh8YXCLpv5ziCGUqV9aQg
 
 
-#### Para el licenciamiento de Biometría 'huellas'
-Se requiere de igualmente el bundle para la generación de la licencia, en este caso se genera un archivo el cual debe ir en la siguiente ruta Android. android/app/src/main/assets.
+### Para el licenciamiento de Biometría 'huellas'
+Se requiere de igualmente el bundle para la generación de la licencia, tan bien el sha1 dell certificado de esta uno para desarrollo y el de produccion, en este caso se genera un archivo el cual debe ir en la siguiente ruta Android. android/app/src/main/assets.
 Y hay pegamos el archivo que entrega bytte para su correcto funcionamiento
+
 
 
 ## Configuración colores de la pantalla de huellas
@@ -314,41 +322,15 @@ Vamos a la carpeta res/values/strings.xml
   > * startCreditCard
   > * startFingerprint
 
-##### ***startPhotoCapture***
 
-```javascript
-    //Captura foto
-     onCapturePhoto = () => {
-        NativeModules.BytteBioLibId.startPhotoCapture(0,0,(response)=>{
-            var obj = JSON.parse(response);
-            if(obj.CodigoOperacion == "0000" && obj.StatusOperacion == "true"){
-                alert(obj.MensajeOriginal+ '\n' + "FileBase64 : " + obj.FileBase64.substr(0,50) + "...");
-            } else {
-                alert(obj.MensajeOriginal);
-            } 
-        }); 
-    }
-```
-
-##### ***startFindFile***
-
-```javascript
-  //Busqueda de archivo
-    fileSearch = () =>{
-            NativeModules.BytteBioLibId.startFindFile(idTipo,(response)=>{
-                var obj = JSON.parse(response);
-                if(obj.CodigoOperacion == "0000" && obj.StatusOperacion == "true"){
-                    alert(obj.MensajeOriginal + '\n' + "FileBase64 : " + obj.FileBase64.substr(0,50) + "...");
-                } else {
-                    alert(obj.MensajeOriginal);
-                } 
-            }); 
-    }
-```
 
 ##### ***startBarCode***
 
 ```javascript
+    //@license = es el ID de licencia de Codigo de barras string largo
+    //@key = es el Password para Ofuscar! Si va Blanco, no Ofusca la imagen
+    //@timeOut =  es el tiempo para retornar el control a la app "timeout" valor en segundos maximo 30 segundos por sugerencia
+    //@pais = defaul colombia no es necesario setearlo 
     //Captura documento reverso
     onCaptureBackDocument = () =>{
         NativeModules.BytteBioLibId.startBarCode(license,key,timeOut,pais,(response)=>{
@@ -365,6 +347,10 @@ Vamos a la carpeta res/values/strings.xml
 ##### ***startFrontDocument***
 
 ```javascript
+ //@license = es el ID de licencia de Codigo de barras string largo
+    //@key = es el Password para Ofuscar! Si va Blanco, no Ofusca la imagen
+    //@timeOut =  es el tiempo para retornar el control a la app "timeout" valor en segundos maximo 30 segundos por sugerencia
+    //@pais = defaul colombia no es necesario setearlo 
     //Captura documento frente
     onCaptureFrontDocument = () =>{
         NativeModules.BytteBioLibId.startFrontDocument(license,key,timeOut,pais,(response)=>{
@@ -381,6 +367,9 @@ Vamos a la carpeta res/values/strings.xml
 ##### ***startCreditCard***
 
 ```javascript
+ //@license = es el ID de licencia de Codigo de barras string largo 'string'
+    //@key = es el Password para Ofuscar! Si va Blanco, no Ofusca, el string debe ir en blaco. 'string'
+    //@timeOut =  es el tiempo para retornar el control a la app "timeout" valor en segundos maximo 30 segundos por sugerencia 'numero'
     //captura tarjeta de credito
     onCaptureCreditCard = () =>{
         NativeModules.BytteBioLibId.startCreditCard(license,key,timeOut,(response)=>{
@@ -397,6 +386,12 @@ Vamos a la carpeta res/values/strings.xml
 ##### ***startFingerprint***
 
 ```javascript
+    //@key = es el Password para Ofuscar! Si va Blanco, no Ofusca la imagen 'string'
+    //@timeOut=tiempo en segundos este valor esta definido no setear uno nuevo 'numero'
+    //@finger= numero de dedo principal tomado de la captura de documento tipodedo1 'numero'
+    //@namePath= nombre del archivo .lic que esta en la ruta necesaria.  'string' 
+     //@url= url entregada por bytte para el correcto funcionamiento de esta captura 'string' 
+     //@netkey= parametro deprecated se deha en blanco 'string' 
     //Captura Biometria dactilar
     onCaptureBiometricDactilar = () =>{
             NativeModules.BytteBioLibId.startFingerprint(key,timeOut,finger,namePath,url,netkey,(response)=>{
@@ -409,6 +404,104 @@ Vamos a la carpeta res/values/strings.xml
             }); 
     }
 ```
+
+
+## Respuesta de las capturas
+### Captura Back documento colombiano de hologramas 
+  * BarcodeBase64
+    : Código de barras en base64 que se requiere para procesos posteriores
+```
+{
+   "BarcodeBase64":"MDMxMzUxNjkyMAAAAAAAAAAAAAAAAAAAUHViRFNLXzEAA",
+   "CiudadExpedicion":"BOGOTA",
+   "CiudadNacimiento":"BOGOTA DC K",
+   "CodigoOperacion":"0000",
+   "DepartamentoCol":"CUNDINAMARCA",
+   "FechaExp":"29 MAY 2009",
+   "FechaNacimiento":"1991/05/27",
+   "MensajeOriginal":"Captura exitosa",
+   "MensajeRetorno":"Ok Captura",
+   "NombresCompletos":"XXXXXX ",
+   "NumeroCedula":"1069258777",
+   "NumeroTarjeta":"1235889",
+   "Pais":"COLOMBIA",
+   "PathImagen":"/data/user/0/com.davivienda.nuevaappemp/files/Documents/DB_IMG_175dcec7_9313_48bb_aa89_9c34406707b0.jpg",
+   "PrimerApellido":"XXXX",
+   "PrimerNombre":"XXXX",
+   "RH":"O+",
+   "SegundoApellido":"XXX",
+   "SegundoNombre":"XXXX",
+   "Sexo":"M",
+   "StatusOperacion":true,
+   "TipoDedo":"2",
+   "TipoDedo2":"7",
+   "VersionCedula":"03"
+}
+```
+
+### Captura Frente documento colombiano de hologramas 
+```
+ {"CodigoOperacion":"0000",
+   "MensajeOriginal":"Captura exitosa",
+   "MensajeRetorno":"Ok Captura",
+   "PathImagen":"/data/user/0/com.davivienda.nuevaappemp/files/Docu…s/DF_IMG_6a6124c9_deb7_42ed_9d2a_6eb4899d28ce.jpg",
+   "PathImagenRostro":"/data/user/0/com.davivienda.nuevaappemp/files/Docu…s/DF_IMG_a9784878_ba42_49f0_afd6_09735dcaa732.jpg",
+   "StatusOperacion":true}
+```
+### Captura de huellas
+*	TipoDedo (Dedo impreso en el documento) principal TipoDedo
+        Se define de la siguiente manera:
+    > *	1 – Derecho Pulgar
+    > *	2 – Derecho Índice
+    > *	3 – Derecho Medio
+    > *	4 – Derecho Anular
+    > *	5 – Derecho Meñique
+    > *	6 – Izquierdo Pulgar
+    > *	7 – Izquierdo Índice
+    > *	8 – Izquierdo Medio
+    > *	9 – Izquierdo Anular
+    > *	10 – Izquierdo Meñique
+    > *	20- mano derecha
+    > *	21-mano izquierda
+
+* se retorna el  path de las img para cada una de las capturas
+```
+{
+    "CodigoOperacion": "0000",
+    "MensajeOriginal": "Captura Exitosa",
+    "MensajeRetorno": "Ok Captura",
+    "StatusOperacion": true,
+    "FingerprintsObjects": [
+        {
+            "Fingerprint": "20",
+            "Minutia": "",
+            "PathBitmap": "/data/user/0/com.davivienda.nuevaappemp/files/Documents/FP_IMG_ecc33475_fb40_4705_9fd5_4dcdd601ec8c.jpg"
+        },
+        {
+            "Fingerprint": "3",
+            "Minutia": "",
+            "PathBitmap": "/data/user/0/com.davivienda.nuevaappemp/files/Documents/FP_IMG_b3ad988f_f394_4d17_9103_71fa262316ef.jpg"
+        },
+        {
+            "Fingerprint": "4",
+            "Minutia": "",
+            "PathBitmap": "/data/user/0/com.davivienda.nuevaappemp/files/Documents/FP_IMG_4e21f108_b2b4_4d2d_9fb1_daa07bff0d43.jpg"
+        },
+        {
+            "Fingerprint": "2",
+            "Minutia": "",
+            "PathBitmap": "/data/user/0/com.davivienda.nuevaappemp/files/Documents/FP_IMG_2a15be0b_61f0_4e81_afd8_0d2db4801300.jpg"
+        },
+        {
+            "Fingerprint": "5",
+            "Minutia": "",
+            "PathBitmap": "/data/user/0/com.davivienda.nuevaappemp/files/Documents/FP_IMG_948a03e3_2833_4701_a389_70282686a1b4.jpg"
+        }
+    ],
+    "plataforma": "Android"
+}
+```
+
 
 ```
 <string name="OK">0000</string><string name="TimeOut">0001</string>
@@ -431,6 +524,8 @@ Control de cambios
 ------------------------------
 ------------------------------
 | 9-nov-2021 | Actualizacion librerías microblink para captura de documentos, cambio de librería para la captura biometria|
+
+| 12-Ene-2023| Se remueve la configuración par la solicitud de safetynet en la implementación de huellas solo afecta a android|
 ```
 
 ## Ejemplo Demo
